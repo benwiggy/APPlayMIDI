@@ -7,6 +7,7 @@ The AVKit framework contains a perfectly good player for MIDI files: AVMIDIPlaye
 
 ![alt text](img/window.png)
 
+Runs on Sierra (10.12) and above. (It could conceivably be 'updated' to support older OSes, as there's nothing particularly new in it.)  
 Each document window contains a slider that both indicates and sets the current play position, and a 'rewind' button to return to the start of the track. Numerical counters show the play position and total duration.
 
 The app contains one other feature: it can Copy the MIDI data from a document to the clipboard, so it can be pasted into apps that support pasting MIDI data.
