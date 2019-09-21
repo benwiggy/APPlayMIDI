@@ -14,7 +14,7 @@ The app contains one other feature: it can Copy the MIDI data from a document to
 Known apps that support MIDI pasteboard include: Finale. (Let me know of others.)
 
 ### Installation ###
-The app itself is zipped up, inside the app folder. Download, unzip and move to the /Applications folder. You may want to make APPlayMIDI the default file for opening MIDI files. Select a MIDI file, then _Get Info_ (File menu or Command I) select "APPlayMIDI", and then click "Change All".
+The app itself is zipped up, inside the __app__ folder. Download, unzip and move to the /Applications folder. You may want to make APPlayMIDI the default file for opening MIDI files. Select a MIDI file, then _Get Info_ (File menu or Command I) select "APPlayMIDI", and then click "Change All".
 
 ### Future ###  
 It would be nice to offer QuickLook previews of MIDI files in the Finder, but currently, QL plug-ins cannot be written in Swift.
