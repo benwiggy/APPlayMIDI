@@ -11,5 +11,5 @@ Each document window contains a slider that both indicates and sets the current 
 
 The app contains one other feature: it can Copy the MIDI data from a document to the clipboard, so it can be pasted into apps that support pasting MIDI data.
 
-##Future##
+## Future##  
 It would be nice to offer QuickLook previews of MIDI files in the Finder, but currently, QL plug-ins cannot be written in Swift.
