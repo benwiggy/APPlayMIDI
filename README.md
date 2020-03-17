@@ -22,7 +22,7 @@ The source files are included, for anyone who wants to add functionality or use 
 ### Future ###  
 It would be nice to offer QuickLook previews of MIDI files in the Finder, but currently, QL plug-ins cannot be written in Swift.
 
-v.1.01 fixes an issue where document windows did not cascade.
+v.1.01 fixes an issue where document windows did not cascade.  
 v.1.02 The app has been code-signed and so should launch more easily when first installed. 
 
 ### Licence ###  
