@@ -15,7 +15,8 @@ The app contains one other feature: it can Copy the MIDI data from a document to
 Known apps that support MIDI pasteboard include: Finale. (Let me know of others.)
 
 ### Installation ###
-Click on the Releases link above, or here: https://github.com/benwiggy/APPlayMIDI/releases. Download, unzip and move to the /Applications folder. You may want to make APPlayMIDI the default file for opening MIDI files. Select a MIDI file, then _Get Info_ (File menu or Command I) select "APPlayMIDI", and then click "Change All".
+Click on the Releases link above, or here: https://github.com/benwiggy/APPlayMIDI/releases. Download, unzip and move to the /Applications folder. You then need to right click on the app and select "Open". A dialog will come up, telling you that it is from an 'unidentified developer', but there should be an "Open" button.   
+You may want to make APPlayMIDI the default file for opening MIDI files. Select a MIDI file, then _Get Info_ (File menu or Command I) select "APPlayMIDI", and then click "Change All".
 
 The source files are included, for anyone who wants to add functionality or use them as the basis of a new app.
 
@@ -23,5 +24,5 @@ The source files are included, for anyone who wants to add functionality or use 
 It would be nice to offer QuickLook previews of MIDI files in the Finder, but currently, QL plug-ins cannot be written in Swift.
 
 v.1.01 fixes an issue where document windows did not cascade.  
-v.1.02 The app has been code-signed and so should launch more easily when first installed. 
+v.1.02 The app has been code-signed, but apparently that's still not enough to clear MacOS's quarantine.
 
