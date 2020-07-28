@@ -14,6 +14,8 @@ The app contains one other feature: it can Copy the MIDI data from a document to
 
 Known apps that support MIDI pasteboard include: Finale. (Let me know of others.)
 
+You can also drag the file icon from the titlebar into any app that supports MIDI dragging: e.g. Cubase, Dorico...
+
 ### Installation ###
 Click on the Releases link above, or here: https://github.com/benwiggy/APPlayMIDI/releases. Download, unzip and move to the /Applications folder. You then need to right click on the app and select "Open". A dialog will come up, telling you that it is from an 'unidentified developer', but there should be an "Open" button.   
 You may want to make APPlayMIDI the default file for opening MIDI files. Select a MIDI file, then _Get Info_ (File menu or Command I) select "APPlayMIDI", and then click "Change All".
