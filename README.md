@@ -27,4 +27,5 @@ It would be nice to offer QuickLook previews of MIDI files in the Finder, but cu
 
 v.1.01 fixes an issue where document windows did not cascade.  
 v.1.02 The app has been code-signed, but apparently that's still not enough to clear MacOS's quarantine.
+v.1.04 Universal Binary for Intel and ARM Macs.
 
