@@ -32,6 +32,7 @@ class Document: NSDocument {
         let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
         let windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Document Window Controller")) as! NSWindowController
         self.addWindowController(windowController)
+        windowController.shouldCascadeWindows = true
     }
     
     @IBAction func copy(_: Any)  {

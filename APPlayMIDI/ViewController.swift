@@ -23,7 +23,7 @@ class ViewController: NSViewController {
     @IBOutlet var theSlider: NSSlider!    
     @IBOutlet var endTimeField: NSTextField!
     @IBOutlet weak var playButton: NSButton!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -40,7 +40,7 @@ class ViewController: NSViewController {
         endTimeField.stringValue = timeString
         }
         
-        _ = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: Selector(("updateDisplay")), userInfo: nil, repeats: true)
+        _ = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateDisplay), userInfo: nil, repeats: true)
     }
     
     @IBAction func playSwitch(_ sender: NSButton) {
