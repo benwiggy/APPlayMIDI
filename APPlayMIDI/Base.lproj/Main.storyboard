@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14868"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -714,14 +714,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="150"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0st-aO-6aF">
-                                <rect key="frame" x="18" y="47" width="444" height="19"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1" tickMarkPosition="above" sliderType="linear" id="yvz-wB-ryo"/>
-                                <connections>
-                                    <action selector="moveSlider:" target="5gI-5U-AMq" id="8YD-8d-bn0"/>
-                                </connections>
-                            </slider>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" preferredMaxLayoutWidth="96" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kxz-GR-WyH">
                                 <rect key="frame" x="18" y="17" width="72" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -755,7 +747,7 @@ IA
                                 </textFieldCell>
                             </textField>
                             <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2lD-Zm-LQ5">
-                                <rect key="frame" x="32" y="78" width="36" height="36"/>
+                                <rect key="frame" x="53" y="78" width="36" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="BacktoPreview" imagePosition="only" alignment="center" alternateImage="BacktoPreview" imageScaling="proportionallyUpOrDown" inset="2" id="lyR-Rm-kV6">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -765,6 +757,14 @@ IA
                                     <action selector="backToStart:" target="5gI-5U-AMq" id="BSb-VN-WIF"/>
                                 </connections>
                             </button>
+                            <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ude-2M-5aE">
+                                <rect key="frame" x="18" y="35" width="444" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="0.20324062622551323" tickMarkPosition="above" sliderType="linear" id="mAH-gP-Moh"/>
+                                <connections>
+                                    <action selector="moveSlider:" target="5gI-5U-AMq" id="jzd-Jk-Gwk"/>
+                                </connections>
+                            </slider>
                         </subviews>
                     </view>
                     <connections>
@@ -772,7 +772,7 @@ IA
                         <outlet property="endTimeField" destination="Hcw-kJ-kI6" id="yCw-H1-Drr"/>
                         <outlet property="ender" destination="Hcw-kJ-kI6" id="usg-3w-K43"/>
                         <outlet property="playButton" destination="sFU-CQ-gEG" id="DhP-2X-DJe"/>
-                        <outlet property="theSlider" destination="0st-aO-6aF" id="z5u-5G-eNM"/>
+                        <outlet property="theSlider" destination="Ude-2M-5aE" id="V0k-wU-aZn"/>
                     </connections>
                 </viewController>
                 <customObject id="2Tp-Fl-jBw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
