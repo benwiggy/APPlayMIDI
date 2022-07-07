@@ -10,11 +10,19 @@ The AVKit framework contains a perfectly good player for MIDI files: AVMIDIPlaye
 Runs on Sierra (10.12) and above. (It could conceivably be 'updated' to support older OSes, as there's nothing particularly new in it.)  
 Each document window contains a slider that both indicates and sets the current play position, and a 'rewind' button to return to the start of the track. Numerical counters show the play position and total duration.
 
-The app contains one other feature: it can Copy the MIDI data from a document to the clipboard, so it can be pasted into apps that support pasting MIDI data.
+The app contains a few other features: it can Copy the MIDI data from a document to the clipboard, so it can be pasted into apps that support pasting MIDI data.
 
 Known apps that support MIDI pasteboard include: Finale. (Let me know of others.)
 
 You can also drag the file icon from the titlebar into any app that supports MIDI dragging: e.g. Cubase, Dorico...
+
+QUICK LOOK!
+
+APPlayMIDI now contains a Quick Look Extension, enabling MIDI files to be playing directly in the Finder. 
+
+The Preview panel, or Quick Look pop-up window, will display three objects: Play/pause button, rewind to start, and a progress indicator. Note that you need to press Play to start the preview (to stop files from auto-playing just by being selected in the Finder).
+
+This feature is still 'a bit beta'; while it works, there are a few interface issues to sort out.
 
 ### Installation ###
 Click on the Releases link above, or here: https://github.com/benwiggy/APPlayMIDI/releases. Download, unzip and move to the /Applications folder. You then need to right click on the app and select "Open". A dialog will come up, telling you that it is from an 'unidentified developer', but there should be an "Open" button.   
