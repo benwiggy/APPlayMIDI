@@ -20,6 +20,8 @@ QUICK LOOK!
 
 APPlayMIDI now contains a Quick Look Extension, enabling MIDI files to be playing directly in the Finder. 
 
+![alt text](img/quicklook.png)
+
 The Preview panel, or Quick Look pop-up window, will display three objects: Play/pause button, rewind to start, and a progress indicator. Note that you need to press Play to start the preview (to stop files from auto-playing just by being selected in the Finder).
 
 This feature is still 'a bit beta'; while it works, there are a few interface issues to sort out.
@@ -28,13 +30,14 @@ This feature is still 'a bit beta'; while it works, there are a few interface is
 Click on the Releases link above, or here: https://github.com/benwiggy/APPlayMIDI/releases. Download, unzip and move to the /Applications folder. You then need to right click on the app and select "Open". A dialog will come up, telling you that it is from an 'unidentified developer', but there should be an "Open" button.   
 You may want to make APPlayMIDI the default file for opening MIDI files. Select a MIDI file, then _Get Info_ (File menu or Command I) select "APPlayMIDI", and then click "Change All".
 
-The source files are included, for anyone who wants to add functionality or use them as the basis of a new app.
+The source files are included, for anyone who wants to help improve the quality of the code, add functionality, or use them as the basis of a new app. 
 
 ### Future ###  
-It would be nice to offer QuickLook previews of MIDI files in the Finder, but currently, QL plug-ins cannot be written in Swift.
+Some refinement of the Quick Look code, to enable different behaviours for the preview panel and the Quick Look pop-up window, would be nice.
 
-v.1.01 fixes an issue where document windows did not cascade.  
-v.1.02 The app has been code-signed, but apparently that's still not enough to clear MacOS's quarantine.  
-v.1.04 Universal Binary for Intel and ARM Macs.  
+v.1.10 Quick Look support added.  
 v.1.05 Fixed an issue with a cropped slider in Monterey.  
+v.1.04 Universal Binary for Intel and ARM Macs.
+v.1.02 The app has been code-signed, but apparently that's still not enough to clear MacOS's quarantine.
+v.1.01 fixes an issue where document windows did not cascade.  
 
