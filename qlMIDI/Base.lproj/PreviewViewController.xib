@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="PreviewViewController" customModule="qlMIDI" customModuleProvider="target">
+            <connections>
+                <outlet property="playButton" destination="kgX-sW-HT8" id="ueR-Nt-Avj"/>
+                <outlet property="theSlider" destination="w6L-AA-SsK" id="9ZI-uQ-ce8"/>
+                <outlet property="view" destination="c22-O7-iKe" id="NRM-P4-wb6"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe" userLabel="Preview View">
+            <rect key="frame" x="0.0" y="0.0" width="170" height="272"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dv4-Yr-ONd">
+                    <rect key="frame" x="69" y="112" width="32" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="BacktoPreview" imagePosition="only" alignment="center" controlSize="mini" imageScaling="proportionallyUpOrDown" inset="2" id="fSP-xg-w4v">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="miniSystem"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="backToStart:" target="-2" id="29c-MF-DeC"/>
+                    </connections>
+                </button>
+                <progressIndicator fixedFrame="YES" maxValue="100" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="w6L-AA-SsK">
+                    <rect key="frame" x="69" y="48" width="32" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                </progressIndicator>
+                <button autoresizesSubviews="NO" id="kgX-sW-HT8">
+                    <rect key="frame" x="53" y="180" width="64" height="64"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Play" imagePosition="only" alignment="center" alternateImage="Pause" controlSize="small" imageScaling="proportionallyUpOrDown" inset="2" id="lAW-s6-wpg">
+                        <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="smallSystem"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="playSwitch:" target="-2" id="IOP-Qi-1kl"/>
+                    </connections>
+                </button>
+            </subviews>
+            <point key="canvasLocation" x="-16.5" y="154"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="BacktoPreview" width="39" height="39"/>
+        <image name="Pause" width="128" height="128"/>
+        <image name="Play" width="128" height="128"/>
+    </resources>
+</document>

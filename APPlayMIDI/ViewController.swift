@@ -9,6 +9,7 @@
 import Cocoa
 import AVFoundation
 import AVKit
+import QuickLook
 
 class ViewController: NSViewController {
     var document: Document? {
