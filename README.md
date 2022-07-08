@@ -16,6 +16,9 @@ Known apps that support MIDI pasteboard include: Finale. (Let me know of others.
 
 You can also drag the file icon from the titlebar into any app that supports MIDI dragging: e.g. Cubase, Dorico...
 
+If you like this app, please consider buying me a drink!
+https://paypal.me/agroovem
+
 ### QUICK LOOK! ###
 
 APPlayMIDI now contains a Quick Look Extension, enabling MIDI files to be played directly in the Finder. 
