@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,7 +16,7 @@
 		B53CD77228738D46002A1C80 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53CD77128738D46002A1C80 /* PreviewViewController.swift */; };
 		B53CD77428738D46002A1C80 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53CD77328738D46002A1C80 /* PreviewProvider.swift */; };
 		B53CD77728738D46002A1C80 /* PreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B53CD77528738D46002A1C80 /* PreviewViewController.xib */; };
-		B53CD77C28738D46002A1C80 /* qlMIDI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B53CD76E28738D46002A1C80 /* qlMIDI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B53CD77C28738D46002A1C80 /* qlMIDI.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = B53CD76E28738D46002A1C80 /* qlMIDI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B53CD78128742F29002A1C80 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B53CD78028742F29002A1C80 /* Media.xcassets */; };
 		B560A51D235F7B71007C9033 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B560A51C235F7B71007C9033 /* WindowController.swift */; };
 /* End PBXBuildFile section */
@@ -32,15 +32,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		B5C2429E2873209700C0CDB1 /* Embed App Extensions */ = {
+		B5C2429E2873209700C0CDB1 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				B53CD77C28738D46002A1C80 /* qlMIDI.appex in Embed App Extensions */,
+				B53CD77C28738D46002A1C80 /* qlMIDI.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -149,7 +149,7 @@
 				B5051861230C2C9E0024884E /* Sources */,
 				B5051862230C2C9E0024884E /* Frameworks */,
 				B5051863230C2C9E0024884E /* Resources */,
-				B5C2429E2873209700C0CDB1 /* Embed App Extensions */,
+				B5C2429E2873209700C0CDB1 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -188,7 +188,7 @@
 					New,
 				);
 				LastSwiftUpdateCheck = 1330;
-				LastUpgradeCheck = 1330;
+				LastUpgradeCheck = 1400;
 				ORGANIZATIONNAME = Ben;
 				TargetAttributes = {
 					B5051864230C2C9E0024884E = {
@@ -200,7 +200,7 @@
 				};
 			};
 			buildConfigurationList = B5051860230C2C9E0024884E /* Build configuration list for PBXProject "APPlayMIDI" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -325,6 +325,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -342,7 +343,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = NO;
@@ -387,6 +388,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -398,7 +400,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = NO;
@@ -417,7 +419,8 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 72;
+				CURRENT_PROJECT_VERSION = 75;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = APPlayMIDI/Info.plist;
@@ -425,8 +428,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.10;
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
+				MARKETING_VERSION = 1.12;
 				PRODUCT_BUNDLE_IDENTIFIER = bensoft.APPlayMIDI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -442,7 +445,8 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 72;
+				CURRENT_PROJECT_VERSION = 75;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = APPlayMIDI/Info.plist;
@@ -450,8 +454,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.10;
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
+				MARKETING_VERSION = 1.12;
 				PRODUCT_BUNDLE_IDENTIFIER = bensoft.APPlayMIDI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -465,7 +469,8 @@
 				CODE_SIGN_ENTITLEMENTS = qlMIDI/qlMIDI.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 72;
+				CURRENT_PROJECT_VERSION = 75;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -477,8 +482,8 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.3;
-				MARKETING_VERSION = 1.10;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.12;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = bensoft.APPlayMIDI.qlMIDI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -495,7 +500,8 @@
 				CODE_SIGN_ENTITLEMENTS = qlMIDI/qlMIDI.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 72;
+				CURRENT_PROJECT_VERSION = 75;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -507,8 +513,8 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.3;
-				MARKETING_VERSION = 1.10;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.12;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = bensoft.APPlayMIDI.qlMIDI;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -18,13 +18,12 @@ class PreviewViewController: NSViewController, QLPreviewingController {
 
     var viewMIDIPlayer: AVMIDIPlayer!
     
+    var myTimer: Timer?
+    
     @IBOutlet weak var playButton: NSButton!
     @IBOutlet weak var theSlider: NSProgressIndicator!
     
-    override func loadView() {
-        super.loadView()
-        // Do any additional setup after loading the view.
-    }
+   
 
     @IBAction func playSwitch(_ sender: NSButton) {
               if (viewMIDIPlayer!.isPlaying) {
@@ -36,7 +35,7 @@ class PreviewViewController: NSViewController, QLPreviewingController {
     
     @IBAction func backToStart(_ sender: Any) {
         if viewMIDIPlayer != nil {
-           // self.viewMIDIPlayer!.stop()
+           self.viewMIDIPlayer!.stop()
             viewMIDIPlayer!.currentPosition = TimeInterval(0)
           playButton.state=NSControl.StateValue.on
             viewMIDIPlayer!.prepareToPlay()
@@ -46,8 +45,9 @@ class PreviewViewController: NSViewController, QLPreviewingController {
     
     func completed() -> AVMIDIPlayerCompletionHandler {
         return {
-            self.playButton.state=NSControl.StateValue.off
-            
+            if self.viewMIDIPlayer!.isPlaying == false {
+                self.playButton.state=NSControl.StateValue.off
+            }
          }
     }
     
@@ -80,7 +80,7 @@ class PreviewViewController: NSViewController, QLPreviewingController {
         // Call the completion handler so Quick Look knows that the preview is fully loaded.
         // Quick Look will display a loading spinner while the completion handler is not called.
        
-        _ = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateDisplay), userInfo: nil, repeats: true)
+        myTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateDisplay), userInfo: nil, repeats: true)
         
         handler(nil)
     }
@@ -89,6 +89,8 @@ class PreviewViewController: NSViewController, QLPreviewingController {
         if (viewMIDIPlayer!.isPlaying) {
       viewMIDIPlayer!.stop()
         }
+        // viewMIDIPlayer = nil
+        myTimer?.invalidate()
         super.viewWillDisappear()
     }
 

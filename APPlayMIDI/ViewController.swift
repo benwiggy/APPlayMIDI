@@ -20,11 +20,13 @@ class ViewController: NSViewController {
         return document?.theMIDIPlayer!
     }
     
+    var myTimer: Timer?
+    
     @IBOutlet var currentTimeField: NSTextField!
     @IBOutlet var theSlider: NSSlider!    
     @IBOutlet var endTimeField: NSTextField!
     @IBOutlet weak var playButton: NSButton!
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -41,34 +43,46 @@ class ViewController: NSViewController {
         endTimeField.stringValue = timeString
         }
         
-        _ = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateDisplay), userInfo: nil, repeats: true)
+        myTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateDisplay), userInfo: nil, repeats: true)
     }
     
     @IBAction func playSwitch(_ sender: NSButton) {
               if (viewMIDIPlayer!.isPlaying) {
             viewMIDIPlayer!.stop()
-        } else {
-        viewMIDIPlayer!.play({return})
+              } else {
+        viewMIDIPlayer!.play(self.completed())
         }
     }
+    
     
     @IBAction func moveSlider(_ sender: Any) {
         viewMIDIPlayer!.stop()
         viewMIDIPlayer!.currentPosition = TimeInterval(theSlider.doubleValue)
        updateDisplay()
-        playButton.state=NSControl.StateValue(rawValue: 1)
+        playButton.state=NSControl.StateValue.on
         viewMIDIPlayer!.prepareToPlay()
-        viewMIDIPlayer!.play({return})
+        viewMIDIPlayer!.play(self.completed())
     }
     
     @IBAction func backToStart(_ sender: Any){
         viewMIDIPlayer!.stop()
         viewMIDIPlayer!.currentPosition = TimeInterval(0)
-        playButton.state=NSControl.StateValue(rawValue: 1)
+        playButton.state=NSControl.StateValue.on
         viewMIDIPlayer!.prepareToPlay()
-        viewMIDIPlayer!.play({return})
+        viewMIDIPlayer!.play(self.completed())
     
     }
+    
+    
+    func completed() -> AVMIDIPlayerCompletionHandler {
+        return {
+
+            if self.viewMIDIPlayer!.isPlaying == false {
+            self.playButton.state=NSControl.StateValue.off
+         }
+        }
+        }
+    
     
     @objc func updateDisplay(){
         if viewMIDIPlayer != nil {
@@ -83,6 +97,14 @@ class ViewController: NSViewController {
             }
             }
     }
+    
+    override func viewDidDisappear() {
+          document!.theMIDIPlayer = nil
+          myTimer?.invalidate()
+          super.viewDidDisappear()
+      }
+
+
 
     override var representedObject: Any? {
         didSet {
