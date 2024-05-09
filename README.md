@@ -35,6 +35,12 @@ You may want to make APPlayMIDI the default file for opening MIDI files. Select 
 
 The source files are included, for anyone who wants to help improve the quality of the code, add functionality, or use them as the basis of a new app. 
 
+### OS Versions required and supported ###
+
+v1.10 does need macOS 12, Monterey, for the Quick Look extension to work.
+v.1.04 and 05 are Universal Binaries for Intel and Apple Silicon, and so require Big Sur to work.
+v1.02 should work on earlier OSes.
+
 ### Future ###  
 Some refinement of the Quick Look code, to enable different behaviours for the preview panel and the Quick Look pop-up window, would be nice.
 
