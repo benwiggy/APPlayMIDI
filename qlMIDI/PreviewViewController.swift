@@ -15,6 +15,8 @@ class PreviewViewController: NSViewController, QLPreviewingController {
     override var nibName: NSNib.Name? {
         return NSNib.Name("PreviewViewController")
     }
+    
+
 
     var viewMIDIPlayer: AVMIDIPlayer!
     
@@ -23,31 +25,34 @@ class PreviewViewController: NSViewController, QLPreviewingController {
     @IBOutlet weak var playButton: NSButton!
     @IBOutlet weak var theSlider: NSProgressIndicator!
     
-   
+    override func loadView() {
+        super.loadView()
+    }
 
     @IBAction func playSwitch(_ sender: NSButton) {
-              if (viewMIDIPlayer!.isPlaying) {
-            viewMIDIPlayer!.stop()
+        guard let midiPlayer = viewMIDIPlayer else { return }
+              if (midiPlayer.isPlaying) {
+            midiPlayer.stop()
         } else {
-        viewMIDIPlayer!.play(self.completed())
+        midiPlayer.play(self.completed())
         }
     }
     
     @IBAction func backToStart(_ sender: Any) {
-        if viewMIDIPlayer != nil {
-           self.viewMIDIPlayer!.stop()
-            viewMIDIPlayer!.currentPosition = TimeInterval(0)
-          playButton.state=NSControl.StateValue.on
-            viewMIDIPlayer!.prepareToPlay()
-            viewMIDIPlayer!.play(self.completed())
-    }
+        guard let midiPlayer = viewMIDIPlayer else { return }
+
+            midiPlayer.currentPosition = TimeInterval(0)
+          playButton.state = .on
+            midiPlayer.prepareToPlay()
+        midiPlayer.play (
+            self.completed()
+        )
     }
     
     func completed() -> AVMIDIPlayerCompletionHandler {
         return {
-            if self.viewMIDIPlayer!.isPlaying == false {
-                self.playButton.state=NSControl.StateValue.off
-            }
+            self.playButton.state = .off
+            
          }
     }
     
@@ -63,33 +68,25 @@ class PreviewViewController: NSViewController, QLPreviewingController {
      */
     
     func preparePreviewOfFile(at url: URL, completionHandler handler: @escaping (Error?) -> Void) {
-        
         do {
-        viewMIDIPlayer = try AVMIDIPlayer.init(contentsOf: url, soundBankURL: nil)
-            
+            viewMIDIPlayer = try AVMIDIPlayer(contentsOf: url, soundBankURL: nil)
             viewMIDIPlayer?.prepareToPlay()
-           theSlider.maxValue = Double(self.viewMIDIPlayer?.duration ?? 0.0)
-    } catch {
-        NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
-    }
-    
-        // Add the supported content types to the QLSupportedContentTypes array in the Info.plist of the extension.
-        
-        // Perform any setup necessary in order to prepare the view.
-        
-        // Call the completion handler so Quick Look knows that the preview is fully loaded.
-        // Quick Look will display a loading spinner while the completion handler is not called.
-       
-        myTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateDisplay), userInfo: nil, repeats: true)
-        
-        handler(nil)
+            theSlider.maxValue = Double(viewMIDIPlayer?.duration ?? 0.0)
+            
+            myTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateDisplay), userInfo: nil, repeats: true)
+            
+            
+            handler(nil) // Call handler with nil to indicate success
+        } catch {
+            handler(error) // Call handler with the caught error
+        }
     }
     
     override func viewWillDisappear() {
         if (viewMIDIPlayer!.isPlaying) {
       viewMIDIPlayer!.stop()
         }
-        // viewMIDIPlayer = nil
+        viewMIDIPlayer = nil
         myTimer?.invalidate()
         super.viewWillDisappear()
     }

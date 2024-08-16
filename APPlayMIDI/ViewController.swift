@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  APPlayMIDI
-//
-//  Created by Ben on 20/08/2019.
-//  Copyright © 2019 Ben. All rights reserved.
-//
-
 import Cocoa
 import AVFoundation
 import AVKit
@@ -17,99 +9,119 @@ class ViewController: NSViewController {
     }
     
     var viewMIDIPlayer: AVMIDIPlayer? {
-        return document?.theMIDIPlayer!
+        return document?.theMIDIPlayer
     }
     
     var myTimer: Timer?
     
     @IBOutlet var currentTimeField: NSTextField!
-    @IBOutlet var theSlider: NSSlider!    
+    @IBOutlet var theSlider: NSSlider!
     @IBOutlet var endTimeField: NSTextField!
     @IBOutlet weak var playButton: NSButton!
+    @IBOutlet weak var loopCheckbox: NSButton!  // Outlet for the loop checkbox
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 
     override func viewDidAppear() {
-        theSlider.maxValue = Double(document!.theMIDIPlayer!.duration)
-        viewMIDIPlayer!.prepareToPlay()
-        if let time = document!.theMIDIPlayer?.duration {
-            let hours = Int(floor(time / 3600))
-            let minutes = Int(floor(time / 60))
-            let seconds = Int((time)) % 60
-            let timeString = String(format: "%02d:%02d:%02d", hours, minutes, seconds)
-        endTimeField.stringValue = timeString
+        super.viewDidAppear()
+        guard let midiPlayer = viewMIDIPlayer else {
+            print("Error: MIDI Player is not available")
+            return
         }
         
-        myTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateDisplay), userInfo: nil, repeats: true)
+        theSlider.maxValue = midiPlayer.duration
+        midiPlayer.prepareToPlay()
+        
+        let time = midiPlayer.duration
+        let timeString = formattedTimeString(time)
+        endTimeField.stringValue = timeString
+        
+        myTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateDisplay), userInfo: nil, repeats: true)
     }
     
     @IBAction func playSwitch(_ sender: NSButton) {
-              if (viewMIDIPlayer!.isPlaying) {
-            viewMIDIPlayer!.stop()
-              } else {
-        viewMIDIPlayer!.play(self.completed())
+        guard let midiPlayer = viewMIDIPlayer else { return }
+        
+        if midiPlayer.isPlaying {
+            midiPlayer.stop()
+        } else {
+            midiPlayer.play {
+                self.completed()
+            }
         }
     }
-    
     
     @IBAction func moveSlider(_ sender: Any) {
-        viewMIDIPlayer!.stop()
-        viewMIDIPlayer!.currentPosition = TimeInterval(theSlider.doubleValue)
-       updateDisplay()
-        playButton.state=NSControl.StateValue.on
-        viewMIDIPlayer!.prepareToPlay()
-        viewMIDIPlayer!.play(self.completed())
+        guard let midiPlayer = viewMIDIPlayer else { return }
+        
+        midiPlayer.stop()
+        midiPlayer.currentPosition = theSlider.doubleValue
+        updateDisplay()
+        playButton.state = .on
+        midiPlayer.prepareToPlay()
+        midiPlayer.play {
+            self.completed()
+        }
     }
     
-    @IBAction func backToStart(_ sender: Any){
-        viewMIDIPlayer!.stop()
-        viewMIDIPlayer!.currentPosition = TimeInterval(0)
-        playButton.state=NSControl.StateValue.on
-        viewMIDIPlayer!.prepareToPlay()
-        viewMIDIPlayer!.play(self.completed())
-    
+    @IBAction func backToStart(_ sender: Any) {
+        guard let midiPlayer = viewMIDIPlayer else { return }
+        
+        midiPlayer.stop()
+        midiPlayer.currentPosition = 0
+        playButton.state = .on
+        midiPlayer.prepareToPlay()
+        midiPlayer.play {
+            self.completed()
+        }
     }
     
-    
-    func completed() -> AVMIDIPlayerCompletionHandler {
-        return {
-
-            if self.viewMIDIPlayer!.isPlaying == false {
-            self.playButton.state=NSControl.StateValue.off
-         }
-        }
-        }
-    
-    
-    @objc func updateDisplay(){
-        if viewMIDIPlayer != nil {
-        if viewMIDIPlayer!.currentPosition <= viewMIDIPlayer!.duration {
-            theSlider.doubleValue = Double((viewMIDIPlayer!.currentPosition))
-            let time = viewMIDIPlayer!.currentPosition
-                let hours = Int(floor(time / 3600))
-                let minutes = Int(floor(time / 60))
-                let seconds = Int((time)) % 60
-                let timeString = String(format: "%02d:%02d:%02d", hours, minutes, seconds)
-        currentTimeField.stringValue = timeString
+    func completed() {
+        if let midiPlayer = viewMIDIPlayer {
+            if midiPlayer.currentPosition >= (midiPlayer.duration - 1) {
+                if self.loopCheckbox.state == .on {
+                    midiPlayer.currentPosition = 0
+                    midiPlayer.prepareToPlay()
+                    midiPlayer.play {
+                        self.completed()
+                    }
+                } else {
+                    self.playButton.state = .off
+                }
+            } else {
+                self.playButton.state = .off
             }
-            }
+        }
+    }
+    
+    @objc func updateDisplay() {
+        guard let midiPlayer = viewMIDIPlayer else { return }
+        
+        if midiPlayer.currentPosition <= midiPlayer.duration {
+            theSlider.doubleValue = midiPlayer.currentPosition
+            let timeString = formattedTimeString(midiPlayer.currentPosition)
+            currentTimeField.stringValue = timeString
+        }
     }
     
     override func viewDidDisappear() {
-          document!.theMIDIPlayer = nil
-          myTimer?.invalidate()
-          super.viewDidDisappear()
-      }
-
-
+        super.viewDidDisappear()
+        document?.theMIDIPlayer = nil
+        myTimer?.invalidate()
+    }
 
     override var representedObject: Any? {
         didSet {
-        // Update the view, if already loaded.
+            // Update the view, if already loaded.
         }
     }
-}
 
+    private func formattedTimeString(_ time: TimeInterval) -> String {
+        let hours = Int(floor(time / 3600))
+        let minutes = Int(floor((time.truncatingRemainder(dividingBy: 3600)) / 60))
+        let seconds = Int(time) % 60
+        return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
+    }
+}
