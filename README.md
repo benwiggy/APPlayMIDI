@@ -43,6 +43,8 @@ v1.02 should work on earlier OSes.
 ### Future ###  
 Some refinement of the Quick Look code, to enable different behaviours for the preview panel and the Quick Look pop-up window, would be nice.
 
+v.1.14 Added loop feature. 
+v.1.12 Fixed memory leak and other fixes.
 v.1.10 Quick Look support added.  
 v.1.05 Fixed an issue with a cropped slider in Monterey.  
 v.1.04 Universal Binary for Intel and ARM Macs.
