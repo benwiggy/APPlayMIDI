@@ -38,7 +38,7 @@ class PreviewProvider: QLPreviewProvider, QLPreviewingController {
         
         let contentType = UTType.plainText // replace with your data type
         
-        let reply = QLPreviewReply.init(dataOfContentType: contentType, contentSize: CGSize.init(width: 800, height: 800)) { (replyToUpdate : QLPreviewReply) in
+        let reply = QLPreviewReply.init(dataOfContentType: contentType, contentSize: CGSize.init(width: 800, height: 400)) { (replyToUpdate : QLPreviewReply) in
 
             let data = Data("Hello world".utf8)
             
