@@ -13,12 +13,10 @@
 		B505186F230C2C9F0024884E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B505186E230C2C9F0024884E /* Assets.xcassets */; };
 		B5051872230C2C9F0024884E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5051870230C2C9F0024884E /* Main.storyboard */; };
 		B53CD76F28738D46002A1C80 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C2428F2873209700C0CDB1 /* Quartz.framework */; };
-		B53CD77228738D46002A1C80 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53CD77128738D46002A1C80 /* PreviewViewController.swift */; };
-		B53CD77428738D46002A1C80 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53CD77328738D46002A1C80 /* PreviewProvider.swift */; };
-		B53CD77728738D46002A1C80 /* PreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B53CD77528738D46002A1C80 /* PreviewViewController.xib */; };
 		B53CD77C28738D46002A1C80 /* qlMIDI.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = B53CD76E28738D46002A1C80 /* qlMIDI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B53CD78128742F29002A1C80 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B53CD78028742F29002A1C80 /* Media.xcassets */; };
 		B560A51D235F7B71007C9033 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B560A51C235F7B71007C9033 /* WindowController.swift */; };
+		B5909A8C308DF848002F2387 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5909A8B308DF848002F2387 /* PreviewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,13 +53,11 @@
 		B5051873230C2C9F0024884E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5051874230C2C9F0024884E /* APPlayMIDI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = APPlayMIDI.entitlements; sourceTree = "<group>"; };
 		B53CD76E28738D46002A1C80 /* qlMIDI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = qlMIDI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		B53CD77128738D46002A1C80 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
-		B53CD77328738D46002A1C80 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
-		B53CD77628738D46002A1C80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PreviewViewController.xib; sourceTree = "<group>"; };
 		B53CD77828738D46002A1C80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B53CD77928738D46002A1C80 /* qlMIDI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = qlMIDI.entitlements; sourceTree = "<group>"; };
 		B53CD78028742F29002A1C80 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		B560A51C235F7B71007C9033 /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
+		B5909A8B308DF848002F2387 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		B5C2428F2873209700C0CDB1 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -121,9 +117,7 @@
 		B53CD77028738D46002A1C80 /* qlMIDI */ = {
 			isa = PBXGroup;
 			children = (
-				B53CD77128738D46002A1C80 /* PreviewViewController.swift */,
-				B53CD77328738D46002A1C80 /* PreviewProvider.swift */,
-				B53CD77528738D46002A1C80 /* PreviewViewController.xib */,
+				B5909A8B308DF848002F2387 /* PreviewViewController.swift */,
 				B53CD77828738D46002A1C80 /* Info.plist */,
 				B53CD77928738D46002A1C80 /* qlMIDI.entitlements */,
 				B53CD78028742F29002A1C80 /* Media.xcassets */,
@@ -189,7 +183,7 @@
 					New,
 				);
 				LastSwiftUpdateCheck = 1330;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 2620;
 				ORGANIZATIONNAME = Ben;
 				TargetAttributes = {
 					B5051864230C2C9E0024884E = {
@@ -197,6 +191,7 @@
 					};
 					B53CD76D28738D46002A1C80 = {
 						CreatedOnToolsVersion = 13.3.1;
+						LastSwiftMigration = 2620;
 					};
 				};
 			};
@@ -234,7 +229,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B53CD78128742F29002A1C80 /* Media.xcassets in Resources */,
-				B53CD77728738D46002A1C80 /* PreviewViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,8 +250,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B53CD77228738D46002A1C80 /* PreviewViewController.swift in Sources */,
-				B53CD77428738D46002A1C80 /* PreviewProvider.swift in Sources */,
+				B5909A8C308DF848002F2387 /* PreviewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,14 +271,6 @@
 				B5051871230C2C9F0024884E /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		B53CD77528738D46002A1C80 /* PreviewViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B53CD77628738D46002A1C80 /* Base */,
-			);
-			name = PreviewViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -348,8 +333,9 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -408,6 +394,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
@@ -416,16 +403,17 @@
 		B5051878230C2C9F0024884E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = APPlayMIDI/APPlayMIDI.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 80;
+				CURRENT_PROJECT_VERSION = 86;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
 				INFOPLIST_FILE = APPlayMIDI/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -433,7 +421,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.5;
-				MARKETING_VERSION = 1.14;
+				MARKETING_VERSION = 1.20;
 				PRODUCT_BUNDLE_IDENTIFIER = bensoft.APPlayMIDI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -443,16 +431,17 @@
 		B5051879230C2C9F0024884E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = APPlayMIDI/APPlayMIDI.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 80;
+				CURRENT_PROJECT_VERSION = 86;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
 				INFOPLIST_FILE = APPlayMIDI/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -460,7 +449,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.5;
-				MARKETING_VERSION = 1.14;
+				MARKETING_VERSION = 1.20;
 				PRODUCT_BUNDLE_IDENTIFIER = bensoft.APPlayMIDI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -471,13 +460,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = qlMIDI/qlMIDI.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 80;
+				CURRENT_PROJECT_VERSION = 86;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_FILE_ACCESS_DOWNLOADS_FOLDER = readonly;
+				ENABLE_FILE_ACCESS_MOVIES_FOLDER = readonly;
+				ENABLE_FILE_ACCESS_MUSIC_FOLDER = readonly;
+				ENABLE_FILE_ACCESS_PICTURE_FOLDER = readonly;
 				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = qlMIDI/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = qlMIDI;
@@ -488,12 +484,13 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.12;
+				MARKETING_VERSION = 1.20;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = bensoft.APPlayMIDI.qlMIDI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -502,13 +499,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = qlMIDI/qlMIDI.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 80;
+				CURRENT_PROJECT_VERSION = 86;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_FILE_ACCESS_DOWNLOADS_FOLDER = readonly;
+				ENABLE_FILE_ACCESS_MOVIES_FOLDER = readonly;
+				ENABLE_FILE_ACCESS_MUSIC_FOLDER = readonly;
+				ENABLE_FILE_ACCESS_PICTURE_FOLDER = readonly;
 				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = qlMIDI/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = qlMIDI;
@@ -519,7 +523,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.12;
+				MARKETING_VERSION = 1.20;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = bensoft.APPlayMIDI.qlMIDI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
