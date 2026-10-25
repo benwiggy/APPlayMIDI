@@ -45,10 +45,13 @@ final class MIDIPlayerModel: ObservableObject {
     private var playToken = 0
     /// Right after play() the engine may not report isPlaying yet; don't resync before this.
     private var resyncNotBefore = Date.distantPast
+    /// Stop old players from continuing
+    private static weak var nowPlaying: MIDIPlayerModel?
 
     deinit { timer?.invalidate() }
 
     func load(url: URL) throws {
+        
         let p = try AVMIDIPlayer(contentsOf: url, soundBankURL: nil)
         p.prepareToPlay()
         player = p
@@ -73,6 +76,8 @@ final class MIDIPlayerModel: ObservableObject {
     func play() {
         guard let player = player, !player.isPlaying else { return }
 
+        if let other = MIDIPlayerModel.nowPlaying, other !== self { other.pause() }
+        MIDIPlayerModel.nowPlaying = self
         // After a finished run the position sits at the end; starting from
         // there would "play" nothing.
         if player.currentPosition >= max(duration - 0.05, 0) {

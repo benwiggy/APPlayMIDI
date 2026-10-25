@@ -9,10 +9,14 @@
 		<dict>
 			<key>CFBundleTypeExtensions</key>
 			<array>
-				<string>[midi]</string>
+				<string>mid</string>
+				<string>midi</string>
+				<string>smf</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string></string>
+			<string>MIDIDocument-label</string>
+			<key>CFBundleTypeIconSystemGenerated</key>
+			<false/>
 			<key>CFBundleTypeName</key>
 			<string>MIDI audio</string>
 			<key>CFBundleTypeOSTypes</key>
@@ -21,6 +25,8 @@
 			</array>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
 			<key>LSItemContentTypes</key>
 			<array>
 				<string>public.midi-audio</string>
