@@ -24,9 +24,8 @@ APPlayMIDI now contains a Quick Look Extension, enabling MIDI files to be played
 
 ![alt text](img/quicklook.png)
 
-The Preview panel, or Quick Look pop-up window, will display three objects: Play/pause button, rewind to start, and a progress indicator. Note that you need to press Play to start the preview (to stop files from auto-playing just by being selected in the Finder).
+The Preview panel, or Quick Look pop-up window, will display three objects: Play/pause button, rewind to start, and a progress indicator. Note that you need to press Play in the Finder's preview panel; but when pressing Space to bring up a QuickLook window, playing starts immediately. You can scrub the progress bar in the QuickLook window.
 
-This feature is still 'a bit beta'; while it works, there are a few interface issues to sort out.
 
 ### Installation ###
 Click on the Releases link above, or here: https://github.com/benwiggy/APPlayMIDI/releases. Download, unzip and move to the /Applications folder. You then need to right click on the app and select "Open". A dialog will come up, telling you that it is from an 'unidentified developer', but there should be an "Open" button.   
@@ -36,13 +35,13 @@ The source files are included, for anyone who wants to help improve the quality 
 
 ### OS Versions required and supported ###
 
-v1.10 does need macOS 12, Monterey, for the Quick Look extension to work.
-v.1.04 and 05 are Universal Binaries for Intel and Apple Silicon, and so require Big Sur to work.
+v1.10 does need macOS 12, Monterey, for the Quick Look extension to work.  
+v.1.04 and 05 are Universal Binaries for Intel and Apple Silicon, and so require Big Sur to work.  
 v1.02 should work on earlier OSes.
 
-### Future ###  
-Some refinement of the Quick Look code, to enable different behaviours for the preview panel and the Quick Look pop-up window, would be nice.
+### Version History ###  
 
+v.1.20 Improved QuickLook extension: works in different modes as window or preview panel.
 v.1.14 Added loop feature. 
 v.1.12 Fixed memory leak and other fixes.
 v.1.10 Quick Look support added.  
